@@ -12,12 +12,6 @@ Premium static HTML/CSS/JS website. No build step. No framework.
 ## Run locally
 Just open `index.html` in your browser, or serve the folder:
 
-```
-python3 -m http.server 8080
-```
-
-Then visit http://localhost:8080
-
 ## Structure
 ```
 index.html
