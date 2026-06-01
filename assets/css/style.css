@@ -101,9 +101,9 @@ a:hover { color: var(--green-500); }
   display: grid;
   place-items: center;
   border-radius: 14px;
-  background: var(--bg-elev);
-  color: var(--text);
-  border: 1px solid var(--border);
+  background: var(--green-700);
+  color: #fff;
+  border: 1px solid transparent;
   box-shadow: var(--shadow-md);
   opacity: 0;
   visibility: hidden;
@@ -117,7 +117,8 @@ a:hover { color: var(--green-500); }
   transform: translateY(0);
 }
 .back-to-top:hover {
-  background: var(--bg-soft);
+  background: var(--green-500);
+  color: #fff;
   transform: translateY(-2px);
 }
 
