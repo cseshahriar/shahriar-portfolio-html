@@ -1,0 +1,24 @@
+/* Responsive Overrides */
+@media (max-width: 991.98px) {
+  .section { padding: 72px 0; }
+  .hero { padding: 64px 0 56px; }
+  .cta-banner { padding: 40px 24px; }
+  .float-card.f5 { display: none; }
+}
+@media (max-width: 767.98px) {
+  .section { padding: 56px 0; }
+  .hero { padding: 48px 0 32px; }
+  h1 { font-size: 2.1rem; }
+  h2 { font-size: 1.6rem; }
+  .float-card { font-size: .75rem; padding: 8px 10px; }
+  .float-card.f2, .float-card.f5 { display: none; }
+  .portrait { width: 240px; }
+  .stat-num { font-size: 2rem; }
+  .cta-banner { padding: 32px 18px; }
+  .site-nav .nav-link { padding: .65rem .9rem !important; }
+}
+@media (max-width: 575.98px) {
+  .hero h1 { font-size: 1.85rem; }
+  .btn { padding: .65rem 1rem; font-size: .92rem; }
+  .float-card.f1, .float-card.f3 { display: none; }
+}

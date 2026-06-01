@@ -1,0 +1,322 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>How I Structure a Production Django Project in 2026 — Shahriar Hosen</title>
+<meta name="description" content="A real-world layout for apps, services, settings, and tests — battle-tested across 12 production deployments." />
+<meta name="author" content="Shahriar Hosen" />
+<link rel="canonical" href="./blog-details.html" />
+<meta property="og:title" content="How I Structure a Production Django Project in 2026" />
+<meta property="og:description" content="A real-world layout for apps, services, settings, and tests — battle-tested across 12 production deployments." />
+<meta property="og:type" content="article" />
+<meta property="og:image" content="https://avatars.githubusercontent.com/u/28825857?s=400" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="theme-color" content="#0A6F32" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230A6F32'/%3E%3Ctext x='32' y='42' font-size='32' font-family='Inter,sans-serif' font-weight='800' fill='white' text-anchor='middle'%3ESH%3C/text%3E%3C/svg%3E" />
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"BlogPosting",
+  "headline":"How I Structure a Production Django Project in 2026",
+  "author":{"@type":"Person","name":"Shahriar Hosen"},
+  "datePublished":"2026-05-24",
+  "image":"https://avatars.githubusercontent.com/u/28825857?s=400"
+}
+</script>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+<link href="assets/css/style.css" rel="stylesheet" />
+<link href="assets/css/responsive.css" rel="stylesheet" />
+</head>
+<body>
+<nav class="navbar navbar-expand-lg site-nav">
+  <div class="container">
+    <a class="navbar-brand navbar-brand-wrap" href="index.html">
+      <span class="brand-mark"><img src="https://avatars.githubusercontent.com/u/28825857?s=400&u=d6f60e28d149f21e59a58ca9669ea88c9fa37190&v=4" alt="Shahriar Hosen"></span>
+      <span>Shahriar <span class="text-gradient">Hosen</span></span>
+    </a>
+    <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav"><i class="bi bi-list fs-3"></i></button>
+    <div class="collapse navbar-collapse" id="mainNav">
+      <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-1">
+        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="projects.html">Projects</a></li>
+        <li class="nav-item"><a class="nav-link" href="index.html#experience">Experience</a></li>
+        <li class="nav-item"><a class="nav-link" href="training.html">Training</a></li>
+        <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
+        <li class="nav-item"><a class="nav-link active" href="blog.html">Blog</a></li>
+        <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+        <li class="nav-item ms-lg-2 d-flex align-items-center gap-2 mt-2 mt-lg-0">
+          <button class="theme-toggle" data-theme-toggle aria-label="Toggle theme"><i data-theme-icon class="bi bi-moon-stars"></i></button>
+          <a href="contact.html" class="btn btn-gold">Hire Me</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<header class="post-hero">
+  <div class="container">
+    <div class="breadcrumb-mini mb-3"><a href="index.html">Home</a> <i class="bi bi-chevron-right small"></i> <a href="blog.html">Blog</a> <i class="bi bi-chevron-right small"></i> Django</div>
+    <span class="cat-pill"><i class="bi bi-tag"></i> Django</span>
+    <h1 class="post-title mt-3">How I Structure a Production Django Project in 2026</h1>
+    <p class="post-lede">A real-world layout for apps, services, settings, and tests — battle-tested across 12 production deployments, four time zones, and three SaaS rewrites.</p>
+    <div class="post-meta-row">
+      <div class="post-author">
+        <span class="avatar">SH</span>
+        <div><strong>Shahriar Hosen</strong><em>Senior Full Stack Developer</em></div>
+      </div>
+      <div class="post-meta-info">
+        <span><i class="bi bi-calendar3"></i> May 24, 2026</span>
+        <span><i class="bi bi-clock"></i> 7 min read</span>
+        <span><i class="bi bi-eye"></i> 12.4k views</span>
+        <span><i class="bi bi-chat-dots"></i> 24 comments</span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section class="section">
+  <div class="container">
+    <div class="row g-5">
+      <article class="col-lg-8 post-body">
+        <div class="post-cover" aria-hidden="true"></div>
+
+        <p class="lead-soft">Most Django tutorials stop at <code>startproject</code>. After three years of shipping production SaaS, I've landed on a layout that survives growth: clear domain boundaries, predictable settings, a service layer, and tests that run in under a minute.</p>
+
+        <h2>1. The folder layout</h2>
+        <p>Keep the project shallow. Two top-level directories — <code>apps/</code> and <code>config/</code> — and a single <code>manage.py</code>. Resist the urge to invent four layers of nesting.</p>
+        <pre><code>project/
+├── apps/
+│   ├── accounts/
+│   ├── billing/
+│   ├── catalog/
+│   └── core/
+├── config/
+│   ├── settings/
+│   │   ├── base.py
+│   │   ├── dev.py
+│   │   └── prod.py
+│   ├── urls.py
+│   └── wsgi.py
+├── tests/
+└── manage.py</code></pre>
+
+        <h2>2. A service layer that earns its keep</h2>
+        <p>Views shouldn't talk to the ORM directly. Put business logic in <code>services.py</code> inside each app. Your serializers become thin, your tests become fast, and your views become boring — which is exactly what you want.</p>
+
+        <blockquote>"If a junior dev can't find where an action happens in 30 seconds, your structure is wrong." — me, after one too many code reviews.</blockquote>
+
+        <h2>3. Settings without surprises</h2>
+        <p>Split <code>settings.py</code> into <code>base</code>, <code>dev</code>, and <code>prod</code>. Read secrets from environment variables via <code>django-environ</code>. Never commit a <code>.env</code>. Validate required variables on boot — failing fast at startup beats failing slow at 3am.</p>
+
+        <h2>4. Testing strategy</h2>
+        <ul>
+          <li>Unit tests for services. Fast, no database where possible.</li>
+          <li>API tests for endpoints. Use DRF's <code>APITestCase</code>.</li>
+          <li>Factory Boy for fixtures — no JSON dumps to maintain.</li>
+          <li>Run with <code>pytest -n auto</code> for parallel runs.</li>
+        </ul>
+
+        <h2>5. Deployment-ready from day one</h2>
+        <p>Dockerise on day one. Add a <code>Makefile</code> with <code>make up</code>, <code>make test</code>, <code>make migrate</code>. New teammates should be productive in 15 minutes.</p>
+
+        <h3>Wrap-up</h3>
+        <p>This isn't theory — it's the same layout running behind production SaaS handling millions of requests a month. Steal it, adapt it, but commit to <em>one</em> structure and let the team trust it.</p>
+
+        <div class="post-tags">
+          <i class="bi bi-tags"></i>
+          <a href="blog.html">Django</a>
+          <a href="blog.html">DRF</a>
+          <a href="blog.html">Python</a>
+          <a href="blog.html">Architecture</a>
+          <a href="blog.html">Production</a>
+        </div>
+
+        <div class="post-share">
+          <span><i class="bi bi-share"></i> Share this article</span>
+          <div>
+            <a href="#" aria-label="Twitter"><i class="bi bi-twitter-x"></i></a>
+            <a href="#" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+            <a href="#" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+            <a href="#" aria-label="Copy link"><i class="bi bi-link-45deg"></i></a>
+          </div>
+        </div>
+
+        <div class="author-box">
+          <span class="avatar lg">SH</span>
+          <div>
+            <h4>Shahriar Hosen</h4>
+            <p>Senior Full Stack Developer · Django, Laravel, Next.js, AWS. I help product teams ship reliable software and train the next generation of engineers.</p>
+            <div class="d-flex gap-2">
+              <a href="contact.html" class="btn btn-gold btn-sm"><i class="bi bi-briefcase me-1"></i>Hire Me</a>
+              <a href="about.html" class="btn btn-outline-green btn-sm">More about me</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- RELATED -->
+        <h3 class="section-title mt-5">Related articles</h3>
+        <div class="row g-4 mt-1">
+          <div class="col-md-6"><article class="blog-card"><a href="blog-details.html" class="blog-thumb"><span class="cat">Django</span></a><div class="blog-body"><div class="blog-meta">Apr 02, 2026 · 5 min</div><h3><a href="blog-details.html">DRF Permissions: A Mental Model That Scales</a></h3></div></article></div>
+          <div class="col-md-6"><article class="blog-card"><a href="blog-details.html" class="blog-thumb" style="background:linear-gradient(135deg,#0A6F32,#22B13D)"><span class="cat">DevOps</span></a><div class="blog-body"><div class="blog-meta">Mar 19, 2026 · 8 min</div><h3><a href="blog-details.html">Postgres Indexes: 8 Mistakes I Stopped Making</a></h3></div></article></div>
+        </div>
+
+        <!-- COMMENTS -->
+        <section class="comments" id="comments">
+          <div class="d-flex align-items-center justify-content-between mb-4">
+            <h3 class="section-title mb-0">Comments <span class="count">(4)</span></h3>
+            <a href="#leave-reply" class="btn btn-outline-green btn-sm"><i class="bi bi-pencil-square me-1"></i>Leave a comment</a>
+          </div>
+
+          <ul class="comment-list">
+            <li class="comment">
+              <span class="c-avatar">AR</span>
+              <div class="c-body">
+                <div class="c-head"><strong>Arif Rahman</strong><em>2 days ago</em></div>
+                <p>The service-layer point is gold. We refactored our checkout into <code>services.py</code> and the test suite went from 8 minutes to 90 seconds. Curious — do you keep mixins or fully functional services?</p>
+                <div class="c-actions">
+                  <button class="c-reply"><i class="bi bi-reply"></i> Reply</button>
+                  <button class="c-like"><i class="bi bi-hand-thumbs-up"></i> 12</button>
+                </div>
+
+                <ul class="comment-list reply">
+                  <li class="comment">
+                    <span class="c-avatar admin">SH</span>
+                    <div class="c-body">
+                      <div class="c-head"><strong>Shahriar Hosen</strong> <span class="badge-author">Author</span><em>1 day ago</em></div>
+                      <p>Plain functions, almost always. Mixins create implicit state — functions force you to be explicit about inputs. Easier to test, easier to grep.</p>
+                      <div class="c-actions"><button class="c-reply"><i class="bi bi-reply"></i> Reply</button><button class="c-like"><i class="bi bi-hand-thumbs-up"></i> 8</button></div>
+                    </div>
+                  </li>
+                  <li class="comment">
+                    <span class="c-avatar">NK</span>
+                    <div class="c-body">
+                      <div class="c-head"><strong>Nadia Khan</strong><em>22 hours ago</em></div>
+                      <p>+1 on functions. We pair each service with a dataclass input — refactors stay safe even a year later.</p>
+                      <div class="c-actions"><button class="c-reply"><i class="bi bi-reply"></i> Reply</button><button class="c-like"><i class="bi bi-hand-thumbs-up"></i> 4</button></div>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </li>
+
+            <li class="comment">
+              <span class="c-avatar">TM</span>
+              <div class="c-body">
+                <div class="c-head"><strong>Tanvir Mahmud</strong><em>3 days ago</em></div>
+                <p>Any thoughts on splitting <code>settings/</code> by environment vs using a single file with env-driven branching? I keep going back and forth.</p>
+                <div class="c-actions">
+                  <button class="c-reply"><i class="bi bi-reply"></i> Reply</button>
+                  <button class="c-like"><i class="bi bi-hand-thumbs-up"></i> 6</button>
+                </div>
+              </div>
+            </li>
+
+            <li class="comment">
+              <span class="c-avatar">JL</span>
+              <div class="c-body">
+                <div class="c-head"><strong>Julia Lee</strong><em>4 days ago</em></div>
+                <p>Bookmarked. Looking forward to the testing deep-dive — would love a follow-up on pytest fixtures and factory-boy patterns at scale.</p>
+                <div class="c-actions">
+                  <button class="c-reply"><i class="bi bi-reply"></i> Reply</button>
+                  <button class="c-like"><i class="bi bi-hand-thumbs-up"></i> 9</button>
+                </div>
+              </div>
+            </li>
+          </ul>
+
+          <!-- REPLY FORM -->
+          <div class="leave-reply" id="leave-reply">
+            <h4>Leave a comment</h4>
+            <p class="muted">Your email address will not be published. Required fields are marked <span class="text-danger">*</span></p>
+            <form onsubmit="event.preventDefault(); this.reset(); alert('Thanks! Your comment is awaiting moderation.');">
+              <div class="row g-3">
+                <div class="col-md-6"><input type="text" class="form-control" placeholder="Your name *" required /></div>
+                <div class="col-md-6"><input type="email" class="form-control" placeholder="Email *" required /></div>
+                <div class="col-12"><input type="url" class="form-control" placeholder="Website (optional)" /></div>
+                <div class="col-12"><textarea class="form-control" rows="5" placeholder="Write your comment…" required></textarea></div>
+                <div class="col-12 form-check ms-2"><input class="form-check-input" type="checkbox" id="saveMe" /><label class="form-check-label" for="saveMe">Save my name and email for the next time I comment.</label></div>
+                <div class="col-12"><button type="submit" class="btn btn-gold"><i class="bi bi-send me-2"></i>Post Comment</button></div>
+              </div>
+            </form>
+          </div>
+        </section>
+      </article>
+
+      <!-- SIDEBAR (reuse blog widgets) -->
+      <aside class="col-lg-4 blog-sidebar">
+        <div class="widget reveal">
+          <h5 class="widget-title">Search Articles</h5>
+          <form class="widget-search" role="search" onsubmit="event.preventDefault();">
+            <i class="bi bi-search"></i>
+            <input type="search" placeholder="Search by keyword or tag…" aria-label="Search articles" />
+          </form>
+        </div>
+        <div class="widget reveal">
+          <h5 class="widget-title">Table of Contents</h5>
+          <ul class="widget-toc">
+            <li><a href="#">1. The folder layout</a></li>
+            <li><a href="#">2. A service layer that earns its keep</a></li>
+            <li><a href="#">3. Settings without surprises</a></li>
+            <li><a href="#">4. Testing strategy</a></li>
+            <li><a href="#">5. Deployment-ready from day one</a></li>
+          </ul>
+        </div>
+        <div class="widget reveal">
+          <h5 class="widget-title">Recent Posts</h5>
+          <ul class="widget-posts">
+            <li><a href="blog-details.html"><span class="wp-thumb"><i class="bi bi-code-slash"></i></span><span><strong>How I Structure a Production Django Project in 2026</strong><em>May 24, 2026</em></span></a></li>
+            <li><a href="blog-details.html"><span class="wp-thumb" style="background:linear-gradient(135deg,#0A6F32,#D6A91D)"><i class="bi bi-cloud-upload"></i></span><span><strong>Zero-Downtime Deployments with Docker & Nginx</strong><em>May 12, 2026</em></span></a></li>
+            <li><a href="blog-details.html"><span class="wp-thumb" style="background:linear-gradient(135deg,#22B13D,#0A6F32)"><i class="bi bi-credit-card"></i></span><span><strong>The SaaS Billing Engine I Wish I Had</strong><em>Apr 28, 2026</em></span></a></li>
+            <li><a href="blog-details.html"><span class="wp-thumb" style="background:linear-gradient(135deg,#D6A91D,#0A6F32)"><i class="bi bi-diagram-3"></i></span><span><strong>Laravel Multi-tenancy: DB-per-tenant vs Shared</strong><em>Apr 14, 2026</em></span></a></li>
+          </ul>
+        </div>
+        <div class="widget reveal">
+          <h5 class="widget-title">Popular Posts</h5>
+          <ol class="widget-popular">
+            <li><a href="blog-details.html"><em>01</em><span><strong>DRF Permissions: A Mental Model That Scales</strong><i>12.4k views</i></span></a></li>
+            <li><a href="blog-details.html"><em>02</em><span><strong>Postgres Indexes: 8 Mistakes I Stopped Making</strong><i>9.1k views</i></span></a></li>
+            <li><a href="blog-details.html"><em>03</em><span><strong>RBAC in Multi-Tenant SaaS</strong><i>7.8k views</i></span></a></li>
+          </ol>
+        </div>
+        <div class="widget reveal">
+          <h5 class="widget-title">Tags</h5>
+          <div class="widget-tags">
+            <a href="blog.html">Django</a><a href="blog.html">DRF</a><a href="blog.html">Python</a><a href="blog.html">Laravel</a><a href="blog.html">Next.js</a><a href="blog.html">React</a><a href="blog.html">Postgres</a><a href="blog.html">Docker</a><a href="blog.html">AWS</a><a href="blog.html">SaaS</a><a href="blog.html">Stripe</a><a href="blog.html">Auth</a>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="row g-4">
+      <div class="col-lg-4">
+        <a class="navbar-brand navbar-brand-wrap" href="index.html"><span class="brand-mark"><img src="https://avatars.githubusercontent.com/u/28825857?s=400&u=d6f60e28d149f21e59a58ca9669ea88c9fa37190&v=4" alt="Shahriar Hosen"></span><span>Shahriar <span class="text-gradient">Hosen</span></span></a>
+        <p class="mt-3" style="max-width:340px">Senior Full Stack Developer building production-grade web applications, SaaS platforms, and scalable APIs.</p>
+        <div class="social-row">
+          <a class="social-icon" href="https://github.com/cseshahriar" aria-label="GitHub"><i class="bi bi-github"></i></a>
+          <a class="social-icon" href="#" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+          <a class="social-icon" href="#" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+          <a class="social-icon" href="mailto:hello@shahriar.dev" aria-label="Email"><i class="bi bi-envelope"></i></a>
+        </div>
+      </div>
+      <div class="col-6 col-lg-2"><h6>Explore</h6><ul><li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="projects.html">Projects</a></li><li><a href="blog.html">Blog</a></li></ul></div>
+      <div class="col-6 col-lg-2"><h6>Services</h6><ul><li><a href="services.html">Custom Apps</a></li><li><a href="services.html">SaaS Development</a></li><li><a href="services.html">API Development</a></li><li><a href="services.html">DevOps</a></li></ul></div>
+      <div class="col-6 col-lg-2"><h6>Training</h6><ul><li><a href="training.html">All Courses</a></li><li><a href="training.html">Python Bootcamp</a></li><li><a href="training.html">Django Mastery</a></li></ul></div>
+      <div class="col-6 col-lg-2"><h6>Contact</h6><ul><li><a href="mailto:hello@shahriar.dev">hello@shahriar.dev</a></li><li><a href="contact.html">Book a Call</a></li><li><a href="contact.html">Dhaka, Bangladesh</a></li></ul></div>
+    </div>
+    <div class="footer-bottom d-md-flex justify-content-between align-items-center">
+      <div>© <span id="year"></span> Shahriar Hosen. Crafted with care.</div>
+      <div class="mt-2 mt-md-0">Built with HTML5 · Bootstrap 5 · Vanilla JS</div>
+    </div>
+  </div>
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="assets/js/main.js"></script>
+</body></html>

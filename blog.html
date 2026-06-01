@@ -1,0 +1,284 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Blog — Shahriar Hosen on Django, Laravel, SaaS & DevOps</title>
+<meta name="description" content="Practical articles on Django, DRF, Laravel, Next.js, Docker, AWS, SaaS architecture, and production engineering." />
+<meta name="author" content="Shahriar Hosen" />
+<link rel="canonical" href="./blog.html" />
+<meta property="og:title" content="Blog — Shahriar Hosen on Django, Laravel, SaaS & DevOps" />
+<meta property="og:description" content="Practical articles on Django, DRF, Laravel, Next.js, Docker, AWS, SaaS architecture, and production engineering." />
+<meta property="og:type" content="website" />
+<meta property="og:image" content="https://avatars.githubusercontent.com/u/28825857?s=400" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="theme-color" content="#0A6F32" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230A6F32'/%3E%3Ctext x='32' y='42' font-size='32' font-family='Inter,sans-serif' font-weight='800' fill='white' text-anchor='middle'%3ESH%3C/text%3E%3C/svg%3E" />
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700;800&display=swap" rel="stylesheet" />
+<link href="assets/css/style.css" rel="stylesheet" />
+<link href="assets/css/responsive.css" rel="stylesheet" />
+</head>
+<body>
+<nav class="navbar navbar-expand-lg site-nav">
+  <div class="container">
+    <a class="navbar-brand navbar-brand-wrap" href="index.html">
+      <span class="brand-mark"><img src="https://avatars.githubusercontent.com/u/28825857?s=400&u=d6f60e28d149f21e59a58ca9669ea88c9fa37190&v=4" alt="Shahriar Hosen"></span>
+      <span>Shahriar <span class="text-gradient">Hosen</span></span>
+    </a>
+    <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav"><i class="bi bi-list fs-3"></i></button>
+    <div class="collapse navbar-collapse" id="mainNav">
+      <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-1">
+        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="projects.html">Projects</a></li>
+        <li class="nav-item"><a class="nav-link" href="index.html#experience">Experience</a></li>
+        <li class="nav-item"><a class="nav-link" href="training.html">Training</a></li>
+        <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
+        <li class="nav-item"><a class="nav-link active" href="blog.html">Blog</a></li>
+        <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+        <li class="nav-item ms-lg-2 d-flex align-items-center gap-2 mt-2 mt-lg-0">
+          <button class="theme-toggle" data-theme-toggle aria-label="Toggle theme"><i data-theme-icon class="bi bi-moon-stars"></i></button>
+          <a href="contact.html" class="btn btn-gold">Hire Me</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<header class="page-header">
+  <div class="container text-center">
+    <span class="eyebrow"><i class='bi bi-journal-text'></i> Blog</span>
+    <h1 class="mt-3">Engineering Notes from the Field.</h1>
+    <p class="section-sub mx-auto" style="max-width:620px">Hands-on tutorials, architecture deep-dives, and production lessons on Django, Laravel, Next.js, AWS & DevOps.</p>
+    <div class="breadcrumb-mini"><a href="index.html">Home</a> <i class="bi bi-chevron-right small"></i> Blog</div>
+  </div>
+</header>
+
+<section class="section">
+  <div class="container">
+    <div class="row g-5">
+      <!-- MAIN -->
+      <div class="col-lg-8">
+        <div class="filter-bar mb-4">
+          <button class="filter-chip active" data-filter="all">All</button>
+          <button class="filter-chip" data-filter="django">Django</button>
+          <button class="filter-chip" data-filter="laravel">Laravel</button>
+          <button class="filter-chip" data-filter="devops">DevOps</button>
+          <button class="filter-chip" data-filter="saas">SaaS</button>
+          <button class="filter-chip" data-filter="nextjs">Next.js</button>
+        </div>
+
+        <div class="row g-4" id="blogGrid">
+          <div class="col-md-6 reveal" data-category="django" data-tags="django drf python api">
+            <article class="blog-card">
+              <a href="blog-details.html" class="blog-thumb"><span class="cat">Django</span></a>
+              <div class="blog-body">
+                <div class="blog-meta"><i class="bi bi-calendar3"></i> May 24, 2026 · <i class="bi bi-clock ms-1"></i> 7 min read</div>
+                <h3><a href="blog-details.html">How I Structure a Production Django Project in 2026</a></h3>
+                <p class="line-clamp-3">A real-world layout for apps, services, settings, and tests — battle-tested across 12 deployments.</p>
+                <a href="blog-details.html" class="btn btn-ghost btn-sm mt-auto align-self-start">Read article <i class="bi bi-arrow-right"></i></a>
+              </div>
+            </article>
+          </div>
+          <div class="col-md-6 reveal" data-category="devops" data-tags="docker nginx github-actions ci-cd">
+            <article class="blog-card">
+              <a href="blog-details.html" class="blog-thumb" style="background:linear-gradient(135deg,#0A6F32,#D6A91D)"><span class="cat">DevOps</span></a>
+              <div class="blog-body">
+                <div class="blog-meta"><i class="bi bi-calendar3"></i> May 12, 2026 · <i class="bi bi-clock ms-1"></i> 9 min read</div>
+                <h3><a href="blog-details.html">Zero-Downtime Deployments with Docker, Nginx & GitHub Actions</a></h3>
+                <p class="line-clamp-3">A practical pipeline you can ship today. No Kubernetes required.</p>
+                <a href="blog-details.html" class="btn btn-ghost btn-sm mt-auto align-self-start">Read article <i class="bi bi-arrow-right"></i></a>
+              </div>
+            </article>
+          </div>
+          <div class="col-md-6 reveal" data-category="saas" data-tags="saas stripe billing webhooks">
+            <article class="blog-card">
+              <a href="blog-details.html" class="blog-thumb" style="background:linear-gradient(135deg,#22B13D,#0A6F32)"><span class="cat">SaaS</span></a>
+              <div class="blog-body">
+                <div class="blog-meta"><i class="bi bi-calendar3"></i> Apr 28, 2026 · <i class="bi bi-clock ms-1"></i> 11 min read</div>
+                <h3><a href="blog-details.html">The SaaS Billing Engine I Wish I Had When I Started</a></h3>
+                <p class="line-clamp-3">Plans, proration, dunning, and how to keep Stripe webhooks honest.</p>
+                <a href="blog-details.html" class="btn btn-ghost btn-sm mt-auto align-self-start">Read article <i class="bi bi-arrow-right"></i></a>
+              </div>
+            </article>
+          </div>
+          <div class="col-md-6 reveal" data-category="laravel" data-tags="laravel multi-tenancy mysql">
+            <article class="blog-card">
+              <a href="blog-details.html" class="blog-thumb" style="background:linear-gradient(135deg,#D6A91D,#0A6F32)"><span class="cat">Laravel</span></a>
+              <div class="blog-body">
+                <div class="blog-meta"><i class="bi bi-calendar3"></i> Apr 14, 2026 · <i class="bi bi-clock ms-1"></i> 6 min read</div>
+                <h3><a href="blog-details.html">Laravel Multi-tenancy: Database-per-tenant vs Shared</a></h3>
+                <p class="line-clamp-3">Trade-offs, migration strategy, and what I'd choose for a B2B SaaS.</p>
+                <a href="blog-details.html" class="btn btn-ghost btn-sm mt-auto align-self-start">Read article <i class="bi bi-arrow-right"></i></a>
+              </div>
+            </article>
+          </div>
+          <div class="col-md-6 reveal" data-category="django" data-tags="drf permissions api security">
+            <article class="blog-card">
+              <a href="blog-details.html" class="blog-thumb"><span class="cat">Django</span></a>
+              <div class="blog-body">
+                <div class="blog-meta"><i class="bi bi-calendar3"></i> Apr 02, 2026 · <i class="bi bi-clock ms-1"></i> 5 min read</div>
+                <h3><a href="blog-details.html">DRF Permissions: A Mental Model That Scales</a></h3>
+                <p class="line-clamp-3">Stop fighting your serializers — design permissions like a router.</p>
+                <a href="blog-details.html" class="btn btn-ghost btn-sm mt-auto align-self-start">Read article <i class="bi bi-arrow-right"></i></a>
+              </div>
+            </article>
+          </div>
+          <div class="col-md-6 reveal" data-category="devops" data-tags="postgres database indexes performance">
+            <article class="blog-card">
+              <a href="blog-details.html" class="blog-thumb" style="background:linear-gradient(135deg,#0A6F32,#22B13D)"><span class="cat">DevOps</span></a>
+              <div class="blog-body">
+                <div class="blog-meta"><i class="bi bi-calendar3"></i> Mar 19, 2026 · <i class="bi bi-clock ms-1"></i> 8 min read</div>
+                <h3><a href="blog-details.html">Postgres Indexes: 8 Mistakes I Stopped Making</a></h3>
+                <p class="line-clamp-3">Lessons from optimising real production schemas.</p>
+                <a href="blog-details.html" class="btn btn-ghost btn-sm mt-auto align-self-start">Read article <i class="bi bi-arrow-right"></i></a>
+              </div>
+            </article>
+          </div>
+          <div class="col-md-6 reveal" data-category="nextjs" data-tags="nextjs react ssr performance">
+            <article class="blog-card">
+              <a href="blog-details.html" class="blog-thumb" style="background:linear-gradient(135deg,#111,#0A6F32)"><span class="cat">Next.js</span></a>
+              <div class="blog-body">
+                <div class="blog-meta"><i class="bi bi-calendar3"></i> Mar 05, 2026 · <i class="bi bi-clock ms-1"></i> 7 min read</div>
+                <h3><a href="blog-details.html">Next.js App Router: Patterns I Use in Every Project</a></h3>
+                <p class="line-clamp-3">Route groups, server actions, and a sane data-fetching boundary.</p>
+                <a href="blog-details.html" class="btn btn-ghost btn-sm mt-auto align-self-start">Read article <i class="bi bi-arrow-right"></i></a>
+              </div>
+            </article>
+          </div>
+          <div class="col-md-6 reveal" data-category="saas" data-tags="auth rbac multi-tenant security">
+            <article class="blog-card">
+              <a href="blog-details.html" class="blog-thumb" style="background:linear-gradient(135deg,#0A6F32,#111)"><span class="cat">SaaS</span></a>
+              <div class="blog-body">
+                <div class="blog-meta"><i class="bi bi-calendar3"></i> Feb 18, 2026 · <i class="bi bi-clock ms-1"></i> 10 min read</div>
+                <h3><a href="blog-details.html">RBAC in Multi-Tenant SaaS: A Pattern That Holds Up</a></h3>
+                <p class="line-clamp-3">Roles, scopes, and policies — without painting yourself into a corner.</p>
+                <a href="blog-details.html" class="btn btn-ghost btn-sm mt-auto align-self-start">Read article <i class="bi bi-arrow-right"></i></a>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <div class="blog-empty d-none reveal" id="blogEmpty">
+          <i class="bi bi-search"></i>
+          <h4>No articles match your search.</h4>
+          <p>Try a different keyword or clear the filter.</p>
+        </div>
+
+        <nav class="mt-5" aria-label="Page navigation">
+          <ul class="pagination justify-content-center">
+            <li class="page-item disabled"><a class="page-link"><i class="bi bi-chevron-left"></i></a></li>
+            <li class="page-item active"><a class="page-link" href="#">1</a></li>
+            <li class="page-item"><a class="page-link" href="#">2</a></li>
+            <li class="page-item"><a class="page-link" href="#">3</a></li>
+            <li class="page-item"><a class="page-link" href="#"><i class="bi bi-chevron-right"></i></a></li>
+          </ul>
+        </nav>
+      </div>
+
+      <!-- SIDEBAR -->
+      <aside class="col-lg-4 blog-sidebar">
+        <div class="widget reveal">
+          <h5 class="widget-title">Search Articles</h5>
+          <form class="widget-search" role="search" onsubmit="event.preventDefault();">
+            <i class="bi bi-search"></i>
+            <input type="search" id="blogSearch" placeholder="Search by keyword or tag…" aria-label="Search articles" />
+          </form>
+        </div>
+
+        <div class="widget reveal">
+          <h5 class="widget-title">Categories</h5>
+          <ul class="widget-cats">
+            <li><a href="#" data-side-cat="all"><span>All Articles</span><em>32</em></a></li>
+            <li><a href="#" data-side-cat="django"><span>Django</span><em>12</em></a></li>
+            <li><a href="#" data-side-cat="laravel"><span>Laravel</span><em>6</em></a></li>
+            <li><a href="#" data-side-cat="devops"><span>DevOps & AWS</span><em>8</em></a></li>
+            <li><a href="#" data-side-cat="saas"><span>SaaS Architecture</span><em>5</em></a></li>
+            <li><a href="#" data-side-cat="nextjs"><span>Next.js & React</span><em>4</em></a></li>
+          </ul>
+        </div>
+
+        <div class="widget reveal">
+          <h5 class="widget-title">Recent Posts</h5>
+          <ul class="widget-posts">
+            <li><a href="blog-details.html"><span class="wp-thumb"><i class="bi bi-code-slash"></i></span><span><strong>How I Structure a Production Django Project in 2026</strong><em>May 24, 2026</em></span></a></li>
+            <li><a href="blog-details.html"><span class="wp-thumb" style="background:linear-gradient(135deg,#0A6F32,#D6A91D)"><i class="bi bi-cloud-upload"></i></span><span><strong>Zero-Downtime Deployments with Docker & Nginx</strong><em>May 12, 2026</em></span></a></li>
+            <li><a href="blog-details.html"><span class="wp-thumb" style="background:linear-gradient(135deg,#22B13D,#0A6F32)"><i class="bi bi-credit-card"></i></span><span><strong>The SaaS Billing Engine I Wish I Had</strong><em>Apr 28, 2026</em></span></a></li>
+            <li><a href="blog-details.html"><span class="wp-thumb" style="background:linear-gradient(135deg,#D6A91D,#0A6F32)"><i class="bi bi-diagram-3"></i></span><span><strong>Laravel Multi-tenancy: DB-per-tenant vs Shared</strong><em>Apr 14, 2026</em></span></a></li>
+          </ul>
+        </div>
+
+        <div class="widget reveal">
+          <h5 class="widget-title">Popular Posts</h5>
+          <ol class="widget-popular">
+            <li><a href="blog-details.html"><em>01</em><span><strong>DRF Permissions: A Mental Model That Scales</strong><i>12.4k views</i></span></a></li>
+            <li><a href="blog-details.html"><em>02</em><span><strong>Postgres Indexes: 8 Mistakes I Stopped Making</strong><i>9.1k views</i></span></a></li>
+            <li><a href="blog-details.html"><em>03</em><span><strong>RBAC in Multi-Tenant SaaS: A Pattern That Holds Up</strong><i>7.8k views</i></span></a></li>
+            <li><a href="blog-details.html"><em>04</em><span><strong>Next.js App Router: Patterns I Use in Every Project</strong><i>6.2k views</i></span></a></li>
+          </ol>
+        </div>
+
+        <div class="widget reveal">
+          <h5 class="widget-title">Tags</h5>
+          <div class="widget-tags">
+            <a href="#" data-tag="django">Django</a>
+            <a href="#" data-tag="drf">DRF</a>
+            <a href="#" data-tag="python">Python</a>
+            <a href="#" data-tag="laravel">Laravel</a>
+            <a href="#" data-tag="nextjs">Next.js</a>
+            <a href="#" data-tag="react">React</a>
+            <a href="#" data-tag="postgres">PostgreSQL</a>
+            <a href="#" data-tag="docker">Docker</a>
+            <a href="#" data-tag="aws">AWS</a>
+            <a href="#" data-tag="nginx">Nginx</a>
+            <a href="#" data-tag="ci-cd">CI/CD</a>
+            <a href="#" data-tag="saas">SaaS</a>
+            <a href="#" data-tag="stripe">Stripe</a>
+            <a href="#" data-tag="auth">Auth</a>
+            <a href="#" data-tag="rbac">RBAC</a>
+            <a href="#" data-tag="performance">Performance</a>
+          </div>
+        </div>
+
+        <div class="widget widget-cta reveal">
+          <h5>Subscribe to the newsletter</h5>
+          <p>One practical engineering email every other week. No spam.</p>
+          <form onsubmit="event.preventDefault();" class="widget-subscribe">
+            <input type="email" placeholder="you@company.com" required />
+            <button class="btn btn-gold w-100 mt-2" type="submit"><i class="bi bi-send me-2"></i>Subscribe</button>
+          </form>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="row g-4">
+      <div class="col-lg-4">
+        <a class="navbar-brand navbar-brand-wrap" href="index.html"><span class="brand-mark"><img src="https://avatars.githubusercontent.com/u/28825857?s=400&u=d6f60e28d149f21e59a58ca9669ea88c9fa37190&v=4" alt="Shahriar Hosen"></span><span>Shahriar <span class="text-gradient">Hosen</span></span></a>
+        <p class="mt-3" style="max-width:340px">Senior Full Stack Developer building production-grade web applications, SaaS platforms, and scalable APIs with Python, Django, Laravel, and Next.js.</p>
+        <div class="social-row">
+          <a class="social-icon" href="https://github.com/cseshahriar" aria-label="GitHub"><i class="bi bi-github"></i></a>
+          <a class="social-icon" href="#" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+          <a class="social-icon" href="#" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+          <a class="social-icon" href="mailto:hello@shahriar.dev" aria-label="Email"><i class="bi bi-envelope"></i></a>
+        </div>
+      </div>
+      <div class="col-6 col-lg-2"><h6>Explore</h6><ul><li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="projects.html">Projects</a></li><li><a href="blog.html">Blog</a></li></ul></div>
+      <div class="col-6 col-lg-2"><h6>Services</h6><ul><li><a href="services.html">Custom Apps</a></li><li><a href="services.html">SaaS Development</a></li><li><a href="services.html">API Development</a></li><li><a href="services.html">DevOps</a></li></ul></div>
+      <div class="col-6 col-lg-2"><h6>Training</h6><ul><li><a href="training.html">All Courses</a></li><li><a href="training.html">Python Bootcamp</a></li><li><a href="training.html">Django Mastery</a></li><li><a href="training.html">Become Mentor</a></li></ul></div>
+      <div class="col-6 col-lg-2"><h6>Contact</h6><ul><li><a href="mailto:hello@shahriar.dev">hello@shahriar.dev</a></li><li><a href="contact.html">Book a Call</a></li><li><a href="contact.html">Dhaka, Bangladesh</a></li></ul></div>
+    </div>
+    <div class="footer-bottom d-md-flex justify-content-between align-items-center">
+      <div>© <span id="year"></span> Shahriar Hosen. Crafted with care.</div>
+      <div class="mt-2 mt-md-0">Built with HTML5 · Bootstrap 5 · Vanilla JS</div>
+    </div>
+  </div>
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="assets/js/main.js"></script>
+</body></html>
