@@ -304,6 +304,11 @@ a:hover { color: var(--green-500); }
   padding: 24px; height: 100%; transition: all .25s ease;
 }
 
+.section-compact { padding: 56px 0; }
+.section-compact .text-center.mb-4 { margin-bottom: 1.5rem !important; }
+.section-compact .feature-card.feature-card-compact { padding: 16px; }
+.section-compact .feature-card.feature-card-compact .icon-square { margin-bottom: 6px; }
+
 /* contact panel style */
 .feature-card.contact-card {
   display: flex;
